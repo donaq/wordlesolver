@@ -1,10 +1,12 @@
+import random
+
 alphabet = [c for c in "abcdefghijklmnopqrstuvwxyz"]
 
 def round():
     with open("words") as fp:
         words = [l.strip() for l in fp]
 
-    word = "plant"
+    word = random.choice(words)
     while True:
         sol = input(f"{word}: ")
         greens, yellows, blanks = list(), list(), list()
@@ -35,7 +37,7 @@ def round():
             else:
                 words = [w for w in words if w.count(c)==maxc]
 
-        word = words[0]
+        word = random.choice(words)
 
         if len(words) == 1:
             print(f"{words[0]} is the solution")
